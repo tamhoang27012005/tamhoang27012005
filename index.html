@@ -7,6 +7,7 @@
     <title>HDTGroup - Limited</title>
     <link rel="shortcut icon" href="./assets/img/hdt.png" />
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/iconfonts/themify-icons/themify-icons.css">
 </head>
 
@@ -20,7 +21,7 @@
                 <li><a href="#tour">Tour</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li style="position: relative;">
-                    <a href="">More
+                    <a href="#">More
                         <i class="icon-down ti-angle-down" style="font-size: 10px;"></i>
                     </a>
                     <ul class="subnav">
@@ -35,6 +36,9 @@
          <!-- Begin: Search Button -->
             <div class="search-button">
                 <i class="icon-search ti-search"></i>
+            </div>
+            <div id="mobile-menu" class="bar-btn">
+                <i class="icon-menu ti-menu"></i>
             </div>
          <!-- End: Search Button -->
     </div>
@@ -172,6 +176,34 @@
         <p class="copy-right">Powered by <b><a target="_blank" href="https://www.facebook.com/profile.php?id=100017007191228">HDTGroup - Hoàng Nguyễn Duy Tâm</a></b></p>
     </div>
     
+    <script>
+        var header = document.getElementById('header');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var headerHeight = header.clientHeight;
+
+        // Open,Close menu
+        mobileMenu.onclick = function() {
+            var isClose = header.clientHeight === headerHeight;
+            if (isClose) {
+                header.style.height = 'auto';
+            }else {
+                header.style.height = null;
+            }
+        }
+
+        // Auto close menu
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"]')
+        for(var i = 0 ; i < menuItems.length; i++) {
+            var menuItem = menuItems[i];
+            var isParentMenu = this.menuItem.nextElementSibling && menuItem.nextElementSibling.classList.contains('subnav');
+            menuItem.onclick = function() {
+                if (!isParentMenu) {
+                    header.style.height = null;
+                }
+            }
+        }
+    </script>
+
 </body>
 </html>
     

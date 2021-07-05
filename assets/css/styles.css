@@ -60,6 +60,7 @@ html {
   left: 0;
   right: 0;
   top: 0;
+  overflow: hidden;
 }
 
 .Text-white {
@@ -90,12 +91,12 @@ html {
   text-decoration: none;
   line-height: 46px;
   padding: 0 24px;
+  display: block;
 }
 
 #nav > li:hover > a {
   color: #000;
   background-color: #ccc;
-  display: inline-block;
 }
 
 .subnav {
@@ -122,21 +123,27 @@ html {
 }
 
 #nav .subnav {
-  display: none;
+  /* display: none; */
   position: absolute;
   top: 46px;
   left: 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-#header .search-button {
-  display: inline-block;
+#header .search-button,
+.bar-btn {
   color: #fff;
   position: absolute;
+  top: 0;
   right: 0;
   line-height: 46px;
   padding: 0 22px;
   cursor: pointer;
+}
+
+#header .bar-btn:hover {
+  background-color: #ccc;
+  color: #000;
 }
 
 #header .search-button:hover {
@@ -177,10 +184,13 @@ html {
 
 #content .section-content {
   width: 800px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 64px 0 112px;
   line-height: 1.5;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .section-content .section-heading,
